@@ -1,1 +1,50 @@
-<h1>Login page</h1>
+<div class="min-w-[400px]">
+  <p-card>
+    <ng-template #title>
+      <h1 class="text-2xl font-bold">NG Movie</h1>
+    </ng-template>
+    <ng-template #subtitle>
+      <p class="mb-0 text-sm text-slate-500">Please login to your account</p>
+    </ng-template>
+    <form class="my-5 flex flex-col gap-5">
+      <p-floatlabel variant="on">
+        <p-icon-field>
+          <p-inputIcon class="pi pi-at" />
+          <input
+            pInputText
+            id="email"
+            autocomplete="off"
+            type="email"
+            pSize="small"
+            class="w-full"
+          />
+        </p-icon-field>
+        <label for="email">Email</label>
+      </p-floatlabel>
+      <p-floatlabel variant="on">
+        <p-icon-field>
+          <p-inputIcon class="pi pi-key" />
+          <input
+            pInputText
+            id="password"
+            autocomplete="off"
+            type="password"
+            pSize="small"
+            class="w-full"
+          />
+        </p-icon-field>
+        <label for="password">Password</label>
+      </p-floatlabel>
+    </form>
+    <div>
+      <p class="text-sm">
+        Does not have an account?
+        <span>
+          <a class="font-bold hover:underline" routerLink="/auth/signup">
+            Register
+          </a>
+        </span>
+      </p>
+    </div>
+  </p-card>
+</div>
