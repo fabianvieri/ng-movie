@@ -1,7 +1,9 @@
 <div class="min-w-[400px]">
   <p-card>
     <ng-template #title>
-      <h1 class="text-2xl font-bold">NG Movie</h1>
+      <h1 class="cursor-pointer text-2xl font-bold hover:opacity-90">
+        <a routerLink="/">NG Movie</a>
+      </h1>
     </ng-template>
     <ng-template #subtitle>
       <p class="mb-0 text-sm text-slate-500">Please login to your account</p>
@@ -35,6 +37,9 @@
         </p-icon-field>
         <label for="password">Password</label>
       </p-floatlabel>
+      <button pButton pRipple type="submit">
+        <span pButtonLabel>Login</span>
+      </button>
     </form>
     <div>
       <p class="text-sm">
