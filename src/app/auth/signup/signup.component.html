@@ -1,69 +1,56 @@
 <div class="min-w-[400px]">
-  <p-card>
-    <ng-template #title>
-      <h1 class="cursor-pointer text-2xl font-bold hover:opacity-90">
+  <div class="card w-full bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h1 class="card-title cursor-pointer text-2xl font-bold hover:opacity-90">
         <a routerLink="/">NG Movie</a>
       </h1>
-    </ng-template>
-    <ng-template #subtitle>
-      <p class="mb-0 text-sm text-slate-500">Please enter below information</p>
-    </ng-template>
-    <form class="my-5 flex flex-col gap-5">
-      <p-floatlabel variant="on">
-        <p-icon-field>
-          <p-inputIcon class="pi pi-at" />
+      <p class="m-0 text-sm text-slate-500">Please enter below information</p>
+      <form class="my-5 flex flex-col gap-5">
+        <label for="email" class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">Email</span>
+          </div>
           <input
-            pInputText
-            id="email"
-            autocomplete="off"
             type="email"
-            pSize="small"
-            class="w-full"
+            id="email"
+            placeholder="example@gmail.com"
+            class="input input-bordered w-full max-w-xs"
           />
-        </p-icon-field>
-        <label for="email">Email</label>
-      </p-floatlabel>
-      <p-floatlabel variant="on">
-        <p-icon-field>
-          <p-inputIcon class="pi pi-key" />
+        </label>
+        <label for="password" class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">Password</span>
+          </div>
           <input
-            pInputText
+            type="password"
             id="password"
-            autocomplete="off"
-            type="password"
-            pSize="small"
-            class="w-full"
+            placeholder="Password"
+            class="input input-bordered w-full max-w-xs"
           />
-        </p-icon-field>
-        <label for="password">Password</label>
-      </p-floatlabel>
-      <p-floatlabel variant="on">
-        <p-icon-field>
-          <p-inputIcon class="pi pi-key" />
+        </label>
+        <label for="confirmPassword" class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">Confirm Password</span>
+          </div>
           <input
-            pInputText
-            id="confirmPassword"
-            autocomplete="off"
             type="password"
-            pSize="small"
-            class="w-full"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            class="input input-bordered w-full max-w-xs"
           />
-        </p-icon-field>
-        <label for="confirmPassword">Confirm Password</label>
-      </p-floatlabel>
-      <button pButton pRipple type="submit">
-        <span pButtonLabel>Sign up</span>
-      </button>
-    </form>
-    <div>
-      <p class="text-sm">
-        Already have an account?
-        <span>
-          <a class="font-bold hover:underline" routerLink="/auth/login">
-            Login
-          </a>
-        </span>
-      </p>
+        </label>
+        <button class="btn btn-neutral" type="submit">Signup</button>
+      </form>
+      <div>
+        <p class="text-sm">
+          Already have an account?
+          <span>
+            <a class="font-bold hover:underline" routerLink="/auth/login">
+              Login
+            </a>
+          </span>
+        </p>
+      </div>
     </div>
-  </p-card>
+  </div>
 </div>

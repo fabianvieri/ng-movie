@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
       <p class="mb-8 text-xl text-gray-600">Page Not Found</p>
       <a
         routerLink="/"
-        class="rounded-md bg-blue-500 px-5 py-2 font-bold text-white hover:bg-blue-700"
+        class="rounded-md bg-green-500 px-5 py-2 font-bold text-white hover:bg-green-700"
       >
         Back to Home
       </a>
