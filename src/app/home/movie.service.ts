@@ -1,6 +1,6 @@
 import { catchError, map, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { API_IMAGE_BASE_URL } from '../shared/constants';
 import { environment } from '../../environments/environment';

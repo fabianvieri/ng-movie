@@ -3,12 +3,17 @@ import {
   Component,
   inject,
   OnInit,
+  signal,
 } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+
 import { MovieService } from '../movie.service';
+import { Movie } from '../../shared/interfaces';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   providers: [],
   selector: 'app-main',
   templateUrl: 'main.component.html',
@@ -16,23 +21,17 @@ import { MovieService } from '../movie.service';
 })
 export class MainComponent implements OnInit {
   private movie = inject(MovieService);
-  coba = '123';
+  nowPlayingMovies = signal<Movie[]>([]);
 
   ngOnInit() {
-    this.coba = '234';
     // get now playing movies
-    // this.movie.getNowPlayingMovies().subscribe({
-    //   next: (data) => {
-    //     console.log(data);
-    //   },
-    //   error: (err: HttpErrorResponse) => {
-    //     this.messageService.add({
-    //       severity: 'error',
-    //       summary: 'Error',
-    //       detail: err.message,
-    //       life: 10000,
-    //     });
-    //   },
-    // });
+    this.movie.getNowPlayingMovies().subscribe({
+      next: (data) => {
+        this.nowPlayingMovies.set(data.slice(0, 5));
+      },
+      error: (err: HttpErrorResponse) => {
+        console.error(err);
+      },
+    });
   }
 }
