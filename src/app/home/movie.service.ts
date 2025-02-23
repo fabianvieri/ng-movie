@@ -33,4 +33,48 @@ export class MovieService {
         }),
       );
   }
+
+  getTrendingMovies(page = 1) {
+    return this.http
+      .get<
+        APIResponse<MovieResponse>
+      >(`${this.url}/movie/popular?language=en-US&page=${page}`)
+      .pipe(
+        map((response) => {
+          if (!response.success) throw new Error(response.message);
+          return response.data.results.map((movie) => ({
+            ...movie,
+            poster_path: `${API_IMAGE_BASE_URL}${movie.poster_path}`,
+          }));
+        }),
+        catchError((error: HttpErrorResponse) => {
+          console.log(error.message);
+          return throwError(
+            () => new Error('Failed to fetch now playing movies'),
+          );
+        }),
+      );
+  }
+
+  getTopRatedMovies(page = 1) {
+    return this.http
+      .get<
+        APIResponse<MovieResponse>
+      >(`${this.url}/movie/top_rated?language=en-US&page=${page}`)
+      .pipe(
+        map((response) => {
+          if (!response.success) throw new Error(response.message);
+          return response.data.results.map((movie) => ({
+            ...movie,
+            poster_path: `${API_IMAGE_BASE_URL}${movie.poster_path}`,
+          }));
+        }),
+        catchError((error: HttpErrorResponse) => {
+          console.log(error.message);
+          return throwError(
+            () => new Error('Failed to fetch now playing movies'),
+          );
+        }),
+      );
+  }
 }
